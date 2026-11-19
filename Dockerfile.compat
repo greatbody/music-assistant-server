@@ -1,0 +1,2 @@
+FROM ghcr.io/greatbody/music-assistant-slim@sha256:0aa7a1278f22b58f3dd7a5dab17b0c1826ea896aff6e7ccc4b7f0a4f253ed276
+RUN apt-get update && apt-get install -y --no-install-recommends libportaudio2 && rm -rf /var/lib/apt/lists/*

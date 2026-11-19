@@ -13,6 +13,7 @@ RUN uv pip install --no-deps . && \
     python -m compileall -q "$VIRTUAL_ENV/lib/python3.14/site-packages/music_assistant"
 
 FROM ${BASE_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends libportaudio2 && rm -rf /var/lib/apt/lists/*
 ENV VIRTUAL_ENV=/app/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 COPY --from=builder /app /app
