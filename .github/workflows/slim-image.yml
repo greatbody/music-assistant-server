@@ -12,7 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: uv run --extra test pre-commit run --all-files
+      - run: uv sync --extra test
+      - name: Install provider dependencies for full-project type checks
+        run: |
+          uv pip install --index-strategy unsafe-best-match --extra-index-url https://download.pytorch.org/whl/cpu -r requirements_all.txt \
+            'torch==2.11.0+cpu' 'torchaudio==2.11.0+cpu' 'librosa==0.11.0' \
+            'beat-this==1.1.0' 'nnAudio==0.3.3' 'torchlibrosa==0.1.0' \
+            'transformers==5.6.2' 'huggingface-hub==1.12.0' 'usearch==2.25.3'
+      - run: uv run --no-sync pre-commit run --all-files
+        env:
+          UV_NO_SYNC: 1
   build:
     runs-on: ubuntu-24.04-arm
     steps:

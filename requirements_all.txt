@@ -38,7 +38,6 @@ getmac==0.9.5
 gql[all]==4.0.0
 hass-client==1.2.3
 hue-entertainment==0.1.1
-huggingface-hub==1.12.0
 ibroadcastaio==0.6.0
 ifaddr==0.2.0
 liblistenbrainz==0.7.0
@@ -71,7 +70,6 @@ python-slugify==8.0.4
 pytz==2025.2
 pywam==0.2.0
 pywidevine==1.9.0
-PyYAML==6.0.3
 qqmusic-api-python==0.4.1
 radios==0.3.2
 rokuecp==0.19.5
@@ -82,9 +80,7 @@ soundcloudpy==0.1.4
 sounddevice==0.5.5
 srptools>=1.0.0
 sxm==0.2.8
-transformers==5.6.2
 unidecode==1.4.0
-usearch==2.25.3
 uv>=0.8.0
 websocket-client==1.9.0
 wiim==0.1.4
