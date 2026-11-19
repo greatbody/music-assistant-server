@@ -21,7 +21,7 @@ from music_assistant_models.playback_progress_report import MediaItemPlaybackPro
 from music_assistant_models.provider import ProviderManifest
 
 from music_assistant.constants import MASS_LOGGER_NAME
-from music_assistant.helpers.app_vars import app_var  # type: ignore[attr-defined]
+from music_assistant.helpers.app_vars import app_var
 from music_assistant.helpers.auth import AuthenticationHelper
 from music_assistant.helpers.scrobbler import ScrobblerConfig, ScrobblerHelper
 from music_assistant.mass import MusicAssistant

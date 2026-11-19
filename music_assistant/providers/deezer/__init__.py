@@ -51,7 +51,7 @@ from music_assistant_models.streamdetails import StreamDetails
 from music_assistant import MusicAssistant
 from music_assistant.constants import CONF_ENTRY_UNOFFICIAL_PROVIDER
 from music_assistant.controllers.cache import use_cache
-from music_assistant.helpers.app_vars import app_var  # type: ignore[attr-defined]
+from music_assistant.helpers.app_vars import app_var
 from music_assistant.helpers.auth import AuthenticationHelper
 from music_assistant.helpers.datetime import utc_timestamp
 from music_assistant.helpers.util import infer_album_type, parse_title_and_version

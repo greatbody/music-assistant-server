@@ -20,7 +20,7 @@ from music_assistant_models.errors import (
 )
 
 from music_assistant.controllers.cache import use_cache
-from music_assistant.helpers.app_vars import app_var  # type: ignore[attr-defined]
+from music_assistant.helpers.app_vars import app_var
 from music_assistant.helpers.compare import create_safe_string
 from music_assistant.helpers.datetime import utc_timestamp
 from music_assistant.helpers.tags import write_identifier_tags

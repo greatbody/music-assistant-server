@@ -9,7 +9,7 @@ from music_assistant_models.enums import ConfigEntryType, ProviderFeature
 from music_assistant_models.errors import InvalidDataError, LoginFailed
 
 from music_assistant.constants import CONF_ENTRY_UNOFFICIAL_PROVIDER
-from music_assistant.helpers.app_vars import app_var  # type: ignore[attr-defined]
+from music_assistant.helpers.app_vars import app_var
 
 from .constants import (
     CALLBACK_REDIRECT_URL,

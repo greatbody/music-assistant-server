@@ -50,7 +50,7 @@ from music_assistant.constants import (
     VARIOUS_ARTISTS_NAME,
 )
 from music_assistant.controllers.cache import use_cache
-from music_assistant.helpers.app_vars import app_var  # type: ignore[attr-defined]
+from music_assistant.helpers.app_vars import app_var
 from music_assistant.helpers.json import json_loads
 from music_assistant.helpers.throttle_retry import (
     ThrottlerManager,

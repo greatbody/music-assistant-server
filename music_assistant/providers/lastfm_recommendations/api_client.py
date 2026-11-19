@@ -13,7 +13,7 @@ from music_assistant_models.errors import (
     ResourceTemporarilyUnavailable,
 )
 
-from music_assistant.helpers.app_vars import app_var  # type: ignore[attr-defined]
+from music_assistant.helpers.app_vars import app_var
 from music_assistant.helpers.throttle_retry import ThrottlerManager
 from music_assistant.providers.lastfm_recommendations.constants import CONF_API_KEY
 

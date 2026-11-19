@@ -14,7 +14,7 @@ from aiohttp import ClientSession
 from music_assistant_models.enums import EventType
 from music_assistant_models.errors import LoginFailed
 
-from music_assistant.helpers.app_vars import app_var  # type: ignore[attr-defined]
+from music_assistant.helpers.app_vars import app_var
 
 from .constants import AUTH_URL, LOGIN_URL, REDIRECT_URI, SESSIONS_URL
 
