@@ -934,6 +934,7 @@ class MusicAssistant:
             prov_conf
             for prov_conf in prov_configs
             if prov_conf.enabled
+            and prov_conf.domain not in {"smart_fades", "sonic_analysis", "sonic_similarity"}
             and (
                 not (manifest := self._provider_manifests.get(prov_conf.domain))
                 or not manifest.builtin
@@ -1030,6 +1031,8 @@ class MusicAssistant:
 
         async def load_provider_manifest(provider_domain: str, provider_path: str) -> None:
             """Preload all available provider manifest files."""
+            if provider_domain in {"smart_fades", "sonic_analysis", "sonic_similarity"}:
+                return
             # get files in subdirectory
             for file_str in await asyncio.to_thread(os.listdir, provider_path):  # noqa: PTH208, RUF100
                 file_path = os.path.join(provider_path, file_str)

@@ -1,0 +1,25 @@
+# syntax=docker/dockerfile:1
+ARG BASE_IMAGE=ghcr.io/music-assistant/base:latest
+FROM ${BASE_IMAGE} AS builder
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+ENV VIRTUAL_ENV=/app/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+WORKDIR /src
+COPY requirements_all.txt pyproject.toml ./
+RUN uv venv "$VIRTUAL_ENV" && uv pip install -r requirements_all.txt
+COPY . .
+RUN uv pip install --no-deps . && \
+    python -c "import importlib.util; assert all(importlib.util.find_spec(n) is None for n in ('torch', 'torchaudio', 'numba', 'llvmlite'))" && \
+    python -m compileall -q "$VIRTUAL_ENV/lib/python3.14/site-packages/music_assistant"
+
+FROM ${BASE_IMAGE}
+ENV VIRTUAL_ENV=/app/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+COPY --from=builder /app /app
+LABEL org.opencontainers.image.title="Music Assistant Slim" \
+      org.opencontainers.image.source="https://github.com/greatbody/music-assistant-server" \
+      org.opencontainers.image.licenses="Apache-2.0"
+VOLUME ["/data"]
+EXPOSE 8095
+WORKDIR /app/venv
+ENTRYPOINT ["mass", "--data-dir", "/data", "--cache-dir", "/data/.cache"]
